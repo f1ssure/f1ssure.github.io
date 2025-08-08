@@ -100,13 +100,13 @@ body {
     align-items: center;
     justify-content: center;
     background-color: var(--main-darker); 
-    padding: 2rem 0;
+    padding: 5rem 0;
 }
 
 #projects h1 {
     font-family: 'Gabarito', Helvetica;
     font-weight: initial;
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
     padding: 10px;
     border-bottom: solid 1.5px var(--text-main-color);
 }
