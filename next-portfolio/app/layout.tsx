@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Tinos } from 'next/font/google';
+import { Geist, Geist_Mono, Tinos, Work_Sans } from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({
@@ -18,6 +18,12 @@ const tinos = Tinos({
   weight: ['400', '700'],
 });
 
+const workSans = Work_Sans({
+  variable: '--font-work-sans',
+  subsets: ['latin'],
+  weight: ['400', '500'],
+});
+
 export const metadata: Metadata = {
   title: 'Gabrielius Bakas',
   description: 'My cute lil\' webpage.',
@@ -31,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${tinos.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${tinos.variable} ${workSans.variable} antialiased`}
       >
         {children}
       </body>

@@ -11,12 +11,13 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-text: var(--font-tinos);
+  --font-name: var(--font-work-sans);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: oklch(21% 0.034 264.665);
+    --foreground: oklch(70.5% 0.015 286.067);
   }
 }
 
