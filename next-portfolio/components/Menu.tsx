@@ -1,15 +1,66 @@
+'use client';
+import { useEffect, useState } from 'react';
+import { usePathname} from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '@/public/portfolio-logo.svg';
+
+const logoPath = '@/public/portfolio-logo.svg';
+const initialLinks = [
+  {
+    text: 'About',
+    id: '/',
+    href: '/',
+    highlighted: false
+  },
+  {
+    text: 'Projects',
+    id: '/projects',
+    href: '/projects',
+    highlighted: false
+  },
+  {
+    text: 'Contact',
+    id: '/contact',
+    href: '/contact',
+    highlighted: false
+  }
+];
 
 export default function Menu() {
+  const uri: string = usePathname();
+  const [links, setLinks] = useState(initialLinks);
+
+  useEffect(() => {
+    const prevLinks = [...links];
+    setLinks(prevLinks.map(link => ({
+      ...link,
+      highlighted: link.id === uri,
+    })));
+  }, [uri]);
+
   return (
     <aside className='border border-white w-50'>
-      <div className='mb-20'>
-        LOGO
+      <div className='mb-20 pl-2'>
+        <Link href='/'>
+          {/* TODO: fix the logo square borders */}
+          <Image src={Logo} width='38' height='38' alt='Logo' />
+        </Link>
       </div>
       <div className='flex flex-col gap-1.5 text-sm'>
-        <Link id='/' href='/'>About</Link>
-        <Link id='/projects' href='/projects'>Projects</Link>
-        <Link id='/contact' href='/contact'>Contact</Link>
+        {links.map((link) =>
+            <div className='flex flex-row items-center w-fit gap-1.5'>
+              <div className={(link.highlighted ? 'scale-100' : 'scale-0') + ' size-1.5 bg-purple-500 rounded-full transition-transform duration-150'}></div>
+              <Link
+                key={link.id}
+                id={link.id}
+                href={link.href}
+                className={link.highlighted ? 'text-purple-500' : ''}
+              >
+                {link.text}
+              </Link>
+            </div>
+         )}
       </div>
     </aside>
   );
