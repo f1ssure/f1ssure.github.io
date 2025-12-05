@@ -7,7 +7,7 @@ export default function Projects() {
   return (
     <>
       <Menu />
-      <Main className='border border-white w-xl flex flex-col'>
+      <Main className='w-xl flex flex-col'>
         <div className='mb-20'>
           <h1 className='font-name font-medium text-lg text-white'>GABRIELIUS BAKAS</h1>
         </div>

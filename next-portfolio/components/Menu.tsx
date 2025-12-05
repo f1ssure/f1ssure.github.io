@@ -40,12 +40,12 @@ export default function Menu() {
   }, [uri]);
 
   return (
-    <aside className='border border-white w-52'>
+    <aside className='-ml-1.5 w-52'>
       <div className='lg:sticky lg:top-20'>
         <div className='mb-20'>
           <Link href='/'>
             {/* TODO: fix the logo square borders */}
-            <Image src={Logo} width='38' height='38' alt='Logo' />
+            <Image src={Logo} width='36' height='36' alt='Logo' className='ml-2' />
           </Link>
         </div>
         <div className='flex flex-col gap-1.5 text-sm'>
@@ -55,7 +55,7 @@ export default function Menu() {
                 <Link
                   id={link.id}
                   href={link.href}
-                  className={link.highlighted ? 'text-purple-500' : ''}
+                  className={(link.highlighted ? 'text-purple-500 text-[14.15px]' : '') + ' font-sans'}
                 >
                   {link.text}
                 </Link>

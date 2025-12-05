@@ -28,7 +28,7 @@ function Icon({ href, icon }: IconProps) {
     /* TODO: Add hover-highlight */
     <div className='size-4'>
       <Link href={href}>
-        <FontAwesomeIcon icon={icon} />
+        <FontAwesomeIcon icon={icon} className='brightness-70 hover:brightness-60' />
       </Link>
     </div>
   );
@@ -37,8 +37,8 @@ function Icon({ href, icon }: IconProps) {
 export default function Footer() {
   return (
     <footer className='flex flex-row justify-between mt-20'>
-      <p>© Gabrielius Bakas</p>
-      <div className='flex flex-row gap-2 items-center'>
+      <p className='text-[15px]'>© 2025 Gabrielius Bakas.</p>
+      <div className='flex flex-row gap-2.5 items-center'>
         {icons.map((icon) => (
           <Icon key={icon.href} href={icon.href} icon={icon.icon} />
         ))}
