@@ -40,27 +40,28 @@ export default function Menu() {
   }, [uri]);
 
   return (
-    <aside className='border border-white w-50'>
-      <div className='mb-20 pl-2'>
-        <Link href='/'>
-          {/* TODO: fix the logo square borders */}
-          <Image src={Logo} width='38' height='38' alt='Logo' />
-        </Link>
-      </div>
-      <div className='flex flex-col gap-1.5 text-sm'>
-        {links.map((link) =>
-            <div className='flex flex-row items-center w-fit gap-1.5'>
-              <div className={(link.highlighted ? 'scale-100' : 'scale-0') + ' size-1.5 bg-purple-500 rounded-full transition-transform duration-150'}></div>
-              <Link
-                key={link.id}
-                id={link.id}
-                href={link.href}
-                className={link.highlighted ? 'text-purple-500' : ''}
-              >
-                {link.text}
-              </Link>
-            </div>
-         )}
+    <aside className='border border-white w-52'>
+      <div className='lg:sticky lg:top-20'>
+        <div className='mb-20'>
+          <Link href='/'>
+            {/* TODO: fix the logo square borders */}
+            <Image src={Logo} width='38' height='38' alt='Logo' />
+          </Link>
+        </div>
+        <div className='flex flex-col gap-1.5 text-sm'>
+          {links.map((link) =>
+              <div key={link.id} className='flex flex-row items-center w-fit gap-1.5'>
+                <div className={(link.highlighted ? 'scale-100' : 'scale-0') + ' size-1.5 bg-purple-500 rounded-full transition-transform duration-150'}></div>
+                <Link
+                  id={link.id}
+                  href={link.href}
+                  className={link.highlighted ? 'text-purple-500' : ''}
+                >
+                  {link.text}
+                </Link>
+              </div>
+           )}
+        </div>
       </div>
     </aside>
   );

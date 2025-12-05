@@ -39,7 +39,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tinos.variable} ${workSans.variable} antialiased`}
       >
-        {children}
+        <div className='flex flex-row mx-2.5 mb-40 max-w-5xl md:mt-20 lg:mt-32 lg:mx-auto'>
+          {children}
+        </div>
       </body>
     </html>
   );
