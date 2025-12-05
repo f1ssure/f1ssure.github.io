@@ -8,12 +8,7 @@ export default function Projects() {
     <>
       <Menu />
       <Main className='w-xl flex flex-col'>
-        <div className='mb-20'>
-          <h1 className='font-name font-medium text-lg text-white'>GABRIELIUS BAKAS</h1>
-        </div>
-        <div className='flex flex-col gap-4'>
-          {/* add some Paragraphs or something */}
-        </div>
+        {/* add some Paragraphs or something */}
       </Main>
     </>
   );
