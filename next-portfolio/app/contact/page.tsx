@@ -2,7 +2,6 @@ import Menu from '@components/Menu';
 import Main from '@components/Main';
 import Link from '@components/Link';
 import Paragraph from '@components/Paragraph';
-import ImageSlider from '@components/ImageSlider';
 
 export default function Contact() {
   return (

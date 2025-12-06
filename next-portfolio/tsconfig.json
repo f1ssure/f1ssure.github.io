@@ -21,7 +21,6 @@
     "paths": {
       "@/*": ["./*"],
       "@components/*": ["./components/*"],
-      "@public/*": ["./public/*"]
     }
   },
   "include": [
