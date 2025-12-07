@@ -43,10 +43,11 @@ export default function Menu() {
     <aside className='-ml-1.5 w-52'>
       <div className='lg:sticky lg:top-20'>
         <div className='mb-20'>
-          <Link href='/'>
-            {/* TODO: fix the logo square borders */}
-            <Image src={Logo} width='36' height='36' alt='Logo' className='ml-2' />
-          </Link>
+          <div className='w-fit ml-2'>
+            <Link href='/'>
+              <Image src={Logo} width='36' height='36' alt='Logo' />
+            </Link>
+          </div>
         </div>
         <div className='flex flex-col gap-1.5 text-sm'>
           {links.map((link) =>
