@@ -1,24 +1,49 @@
+import { useState } from 'react';
 
-interface Values {
+interface Data {
   email: string
   subject: string
   text: string
 }
 
-export async function SubmitContactForm(values: Values) {
-  const nodemailer = require('nodemailer');
-
-  // Create a test account or replace with real credentials.
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-  });
-
-  await transporter.verify();
-  console.log("Server is ready to take our messages");
+interface ApiResponse {
+  message?: string;
+  messageId?: string;
+  error?: string;
 }
+
+const useSubmit = () => {
+  const [isLoading, setLoading] = useState(false);
+  const [response, setResponse] = useState<ApiResponse | null>(null);
+
+  const submit = async (data: Data) => {
+    setLoading(true);
+    setResponse(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result: ApiResponse = await res.json();
+
+      if (!res.ok) {
+        setResponse({ error: result.error || 'Failed to send email' });
+      } else {
+        setResponse({ message: result.message || 'Email sent successfully' });
+      }
+    } catch (error) {
+      setResponse({ error: 'Network error. Please check your connection and try again.' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { isLoading, response, submit };
+};
+
+export default useSubmit;

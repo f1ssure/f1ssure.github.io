@@ -1,31 +1,55 @@
 'use client';
+import { useState, useEffect, useRef } from 'react';
 import { Formik, FormikProps, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { SubmitContactForm } from './submit';
+import useSubmit from './submit';
 import Menu from '@components/Menu';
 import Main from '@components/Main';
 import Link from '@components/Link';
 import Paragraph from '@components/Paragraph';
 import Spinner from '@components/Spinner';
-
-{/* TODO: make custom state hook in the submission logic file and use it for UI updates */}
-{/* TODO: implement the underlying submission function that sends an email */}
+import { Check, X } from 'lucide-react';
 
 export default function Contact() {
-  // use the state from submit.ts
+  const { isLoading, response, submit } = useSubmit();
+  const [success, setSuccess] = useState(false);
+  const [fail, setFail] = useState(false);
+  const formikRef = useRef();
+
+  useEffect(() => {
+    if (response !== null) {
+      if (response.error) {
+        setFail(true);
+      } else {
+        setSuccess(true);
+        formikRef.current.resetForm();
+      }
+
+      setTimeout(() => {
+        setFail(false);
+        setSuccess(false);
+      }, 2000)
+
+      return () => {
+        setFail(false);
+        setSuccess(false);
+      }
+    }
+  }, [response]);
 
   return (
     <>
       <Menu />
       <Main className='w-xl flex flex-col'>
         <Formik
+          innerRef={formikRef}
           initialValues={{
             email: '',
             subject: '',
             text: '',
           }}
           onSubmit={(values) => {
-            // SubmitContactForm(...values);
+            submit({...values});
           }}
           validationSchema={Yup.object({
             email: Yup.string().required('Required').email('Invalid email address'),
@@ -62,8 +86,9 @@ export default function Contact() {
                 <button type='submit' className='bg-transparent rounded-sm duration-150 outline-[1.5px] hover:outline-0 outline-purple-600 active:scale-95 hover:bg-purple-600 text-purple-600 hover:text-white px-3 py-1.25 overflow-hidden'>
                   Send
                 </button>
-                {/* add conditional rendering */}
-                {true && <Spinner aria-label='Loading...' className='size-6 text-purple-500' />}
+                {isLoading && <Spinner aria-label='Loading...' className='size-6 text-purple-500 scale-100 duration-200' />}
+                {success && <Check className='duration-200 size-6 scale-100 text-purple-500' />}
+                {fail && <X className='duration-200 size-6 scale-100 text-purple-500' />}
               </div>
             </Form>
           )}
@@ -72,3 +97,4 @@ export default function Contact() {
     </>
   );
 }
+
