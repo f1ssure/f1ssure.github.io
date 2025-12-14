@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@/public/portfolio-logo.svg';
 
-const logoPath = '@/public/portfolio-logo.svg';
 const initialLinks = [
   {
     text: 'About',

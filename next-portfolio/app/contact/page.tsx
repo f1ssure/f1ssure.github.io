@@ -83,7 +83,7 @@ export default function Contact() {
                 </label>
               </div>
               <div className='flex flex-row items-center gap-4 mt-6'>
-                <button type='submit' className='bg-transparent rounded-sm duration-150 outline-[1.5px] hover:outline-0 outline-purple-600 active:scale-95 hover:bg-purple-600 text-purple-600 hover:text-white px-3 py-1.25 overflow-hidden'>
+                <button type='submit' className='bg-transparent cursor-pointer rounded-sm duration-150 outline-[1.5px] hover:outline-0 outline-purple-600 active:scale-95 hover:bg-purple-600 text-purple-600 hover:text-white px-3 py-1.25 overflow-hidden'>
                   Send
                 </button>
                 {isLoading && <Spinner aria-label='Loading...' className='size-6 text-purple-500 scale-100 duration-200' />}

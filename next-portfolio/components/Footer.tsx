@@ -25,10 +25,9 @@ interface IconProps {
 
 function Icon({ href, icon }: IconProps) {
   return (
-    /* TODO: Add hover-highlight */
     <div className='size-4'>
       <Link href={href}>
-        <FontAwesomeIcon icon={icon} className='brightness-70 hover:brightness-60' />
+        <FontAwesomeIcon icon={icon} className='brightness-70 hover:invert-35 dark:hover:invert-0 dark:hover:brightness-60' />
       </Link>
     </div>
   );
