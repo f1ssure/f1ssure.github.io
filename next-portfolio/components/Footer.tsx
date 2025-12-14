@@ -35,7 +35,7 @@ function Icon({ href, icon }: IconProps) {
 
 export default function Footer() {
   return (
-    <footer className='flex flex-row justify-between mt-20'>
+    <footer className='flex flex-row justify-between mt-10 lg:mt-20'>
       <p className='text-[15px]'>© 2025 Gabrielius Bakas.</p>
       <div className='flex flex-row gap-2.5 items-center'>
         {icons.map((icon) => (

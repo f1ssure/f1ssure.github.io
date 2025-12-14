@@ -40,7 +40,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tinos.variable} ${workSans.variable} antialiased`}
       >
-        <div className='flex flex-row mx-2.5 mb-40 max-w-5xl md:mt-20 lg:mt-32 lg:mx-auto'>
+        <div className='flex lg:flex-row flex-col items-center lg:items-start mx-2.5 mb-25 lg:mb-40 max-w-5xl mt-10 md:mt-20 lg:mt-32 lg:mx-auto'>
           <ScrollToTop />
           {children}
         </div>

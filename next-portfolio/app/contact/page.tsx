@@ -40,7 +40,7 @@ export default function Contact() {
   return (
     <>
       <Menu />
-      <Main className='w-xl flex flex-col'>
+      <Main>
         <Formik
           innerRef={formikRef}
           initialValues={{
@@ -59,7 +59,7 @@ export default function Contact() {
         >
           {(props: FormikProps<any>) => (
             <Form>
-              <div className='flex flex-col gap-5 w-4/5 text-sm'>
+              <div className='flex flex-col gap-5 w-full lg:w-4/5 text-sm'>
                 <label>
                   Email:
                   <Field className='w-full px-2 py-1 rounded-lg border border-zinc-300/25 outline-none focus:border-zinc-500/75 dark:focus:border-zinc-300/50 shadow-xs shadow-zinc-400 dark:shadow-none text-sm mt-2' type='email' name='email' placeholder='Enter your email address' />

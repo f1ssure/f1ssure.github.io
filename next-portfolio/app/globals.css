@@ -16,6 +16,8 @@
   --font-mono: var(--font-geist-mono);
   --font-text: var(--font-tinos);
   --font-name: var(--font-work-sans);
+  --breakpoint-xs: 34rem;
+  --breakpoint-2xs: 24rem;
 }
 
 @media (prefers-color-scheme: dark) {

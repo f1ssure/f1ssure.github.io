@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -52,9 +53,15 @@ const images = [
 ];
 
 export default function ImageSlider() {
+  const [width, setWidth] = useState(undefined);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
+
   return (
     <Swiper
-      className='w-9/10 h-85 my-7 rounded-2xl ml-0!'
+      className='w-full h-50 2xs:w-110 2xs:max-w-full 2xs:h-55 xs:w-120 xs:h-65 sm:w-lg sm:h-75 md:w-145 md:h-85 my-7 rounded-2xl ml-0!'
       spaceBetween={30}
       centeredSlides={true}
       autoplay={{
@@ -65,7 +72,7 @@ export default function ImageSlider() {
         clickable: true,
       }}
       loop={true}
-      navigation={true}
+      navigation={(width >= 640) ? true : false}
       modules={[Autoplay, Pagination, Navigation]}
     >
       <div className='relative'>
