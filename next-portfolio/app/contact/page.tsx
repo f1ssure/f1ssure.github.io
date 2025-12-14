@@ -62,21 +62,21 @@ export default function Contact() {
               <div className='flex flex-col gap-5 w-4/5 text-sm'>
                 <label>
                   Email:
-                  <Field className='w-full px-2 py-1 rounded-lg border border-zinc-300/50 outline-none focus:border-zinc-500/75 dark:focus:border-zinc-300/25 shadow-xs shadow-zinc-400 dark:shadow-none text-sm mt-2' type='email' name='email' placeholder='Enter your email address' />
+                  <Field className='w-full px-2 py-1 rounded-lg border border-zinc-300/25 outline-none focus:border-zinc-500/75 dark:focus:border-zinc-300/50 shadow-xs shadow-zinc-400 dark:shadow-none text-sm mt-2' type='email' name='email' placeholder='Enter your email address' />
                   <div className='text-purple-500 text-xs h-1.5'>
                     <ErrorMessage name='email'>{msg => <span>* {msg}</span>}</ErrorMessage>
                   </div>
                 </label>
                 <label>
                   Subject:
-                  <Field className='w-full px-2 py-1 rounded-lg border border-zinc-300/50 outline-none focus:border-zinc-500/75 dark:focus:border-zinc-300/25 shadow-xs shadow-zinc-400 dark:shadow-none text-sm mt-2' type='text' name='subject' placeholder='Enter subject' />
+                  <Field className='w-full px-2 py-1 rounded-lg border border-zinc-300/25 outline-none focus:border-zinc-500/75 dark:focus:border-zinc-300/50 shadow-xs shadow-zinc-400 dark:shadow-none text-sm mt-2' type='text' name='subject' placeholder='Enter subject' />
                   <div className='text-purple-500 text-xs h-1.5'>
                     <ErrorMessage name='subject'>{msg => <span>* {msg}</span>}</ErrorMessage>
                   </div>
-                </label>
+               </label>
                 <label>
                   Message:
-                  <Field className='w-full px-2 py-1 rounded-lg border border-zinc-300/50 outline-none focus:border-zinc-500/75 dark:focus:border-zinc-300/25 shadow-xs shadow-zinc-400 dark:shadow-none text-sm mt-2 h-45' as='textarea' name='text' placeholder='Your message...' />
+                  <Field className='w-full px-2 py-1 rounded-lg border border-zinc-300/25 outline-none focus:border-zinc-500/75 dark:focus:border-zinc-300/50 shadow-xs shadow-zinc-400 dark:shadow-none text-sm mt-2 h-45' as='textarea' name='text' placeholder='Your message...' />
                   <div className='text-purple-500 text-xs h-1.5'>
                     <ErrorMessage name='text'>{msg => <span>* {msg}</span>}</ErrorMessage>
                   </div>

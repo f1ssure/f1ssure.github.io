@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Tinos, Work_Sans } from 'next/font/google';
+import ScrollToTop from './scroll';
 import './globals.css';
 
 const geistSans = Geist({
@@ -40,6 +41,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${tinos.variable} ${workSans.variable} antialiased`}
       >
         <div className='flex flex-row mx-2.5 mb-40 max-w-5xl md:mt-20 lg:mt-32 lg:mx-auto'>
+          <ScrollToTop />
           {children}
         </div>
       </body>

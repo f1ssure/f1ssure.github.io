@@ -43,7 +43,7 @@ export default function Menu() {
     <aside className='-ml-1.5 w-52'>
       <div className='lg:sticky lg:top-20'>
         <div className='mb-20'>
-          <div className='w-fit ml-2'>
+          <div className='w-fit ml-2 mt-0.35'>
             <Link href='/'>
               <Image src={Logo} width='36' height='36' alt='Logo' />
             </Link>

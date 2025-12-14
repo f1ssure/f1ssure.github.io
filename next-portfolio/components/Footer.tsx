@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const icons = [
   {
-    href: 'mailto:gabrielius.bakas@gmail.com',
+    href: 'mailto:contact@f1ssure.com',
     icon: faEnvelope,
   },
   {
